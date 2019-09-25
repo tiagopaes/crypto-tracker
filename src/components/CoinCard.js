@@ -13,10 +13,10 @@ const styles = StyleSheet.create({
   upperRow: {
     display: 'flex',
     flexDirection: 'row',
-    marginBottom: '15'
+    marginBottom: 15
   },
   coinSymbol: {
-    marginTop: 18,
+    marginTop: 10,
     marginLeft: 20,
     marginRight: 5,
     fontWeight: 'bold'
@@ -85,19 +85,19 @@ const CoinCard = ({_symbol, _coinName, _priceUSD, _percentChange24h, _percentCha
         <Text style={separator}>|</Text>
         <Text style={coinName}>{_coinName}</Text>
         <Text style={coinPrice}>
-          {_priceUSD}
-          <Text style={moneySymbol}>$</Text>
+          <Text style={moneySymbol}>$ </Text>
+          {Number(_priceUSD).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
         </Text>
       </View>
       <View style={statisticsContainer}>
         <Text>
-          24hr:
+          24hr:&ensp;
           <Text style={_percentChange24h < 0 ? percentChangeMinus : percentChangePlus}>
             {_percentChange24h} %
           </Text>
         </Text>
         <Text>
-          7d:
+          7d:&ensp;
           <Text style={_percentChange7d < 0 ? percentChangeMinus : percentChangePlus}>
             {_percentChange7d} %
           </Text>

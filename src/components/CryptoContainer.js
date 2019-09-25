@@ -7,14 +7,14 @@ import CoinCard from './CoinCard';
 import FetchCoinData from './../Actions/FetchCoinData';
 
 class CryptoContainer extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.FetchCoinData();
   }
 
   renderCoinCards() {
     const { crypto } = this.props;
     return crypto.data.map((coin) => {
-      <CoinCard
+      return <CoinCard
         key={coin.name}
         _coinName={coin.name}
         _symbol={coin.symbol}
@@ -29,23 +29,23 @@ class CryptoContainer extends Component {
     const { crypto } = this.props;
     const { contentContainer } = styles;
 
-    if (crypto.isFetching) {
+    if (crypto.isFetching === false) {
       return (
-        <View>
-          <Spinner
-            visible={crypto.isFetching}
-            textContent={'Loading...'}
-            textStyle={{color: '#253145'}}
-            animation='fade'
-          ></Spinner>
-        </View>
+        <ScrollView contentContainerStyle={contentContainer}>
+          {this.renderCoinCards()}
+        </ScrollView>
       );
     }
 
     return (
-      <ScrollView contentContainerStyle={contentContainer}>
-        {this.renderCoinCards()}
-      </ScrollView>
+      <View>
+        <Spinner
+          visible={crypto.isFetching}
+          textContent={'Loading...'}
+          textStyle={{ color: '#253145' }}
+          animation='fade'
+        ></Spinner>
+      </View>
     );
   }
 }
@@ -63,4 +63,4 @@ function mapStateToProp(state) {
   }
 }
 
-export default connect(mapStateToProp, {FetchCoinData})(CryptoContainer);
+export default connect(mapStateToProp, { FetchCoinData })(CryptoContainer);
