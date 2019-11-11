@@ -5,7 +5,7 @@ import {
 } from './../Utils/ActionTypes';
 
 const initialSate = {
-  isFetching: null,
+  isFetching: false,
   data: [],
   hasError: false,
   errorMessage: null

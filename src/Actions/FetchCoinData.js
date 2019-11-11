@@ -1,27 +1,44 @@
 import axios from 'axios';
-import { apiBaseUrl } from './../Utils/Contants';
+import {apiBaseUrl, apiSecretKey} from './../Utils/Contants';
 import {
   FETCHING_COIN_DATA,
   FETCHING_COIN_DATA_SUCCESS,
-  FETCHING_COIN_DATA_FAIL
+  FETCHING_COIN_DATA_FAIL,
 } from './../Utils/ActionTypes';
 
 export default function FetchCoinData() {
-  return dispatch => {
-    dispatch({ type: FETCHING_COIN_DATA });
+  return async dispatch => {
+    dispatch({type: FETCHING_COIN_DATA});
 
-    return axios.get(`${apiBaseUrl}/v1/ticker/?limit=10`)
-      .then(response => {
-        return dispatch({
-          type: FETCHING_COIN_DATA_SUCCESS,
-          payload: response.data
-        })
-      })
-      .catch(error => {
-        return dispatch({
-          type: FETCHING_COIN_DATA_FAIL,
-          payload: error
-        })
-      })
-  }
+    try {
+      const response = await axios.get(
+        `${apiBaseUrl}/cryptocurrency/map?limit=10&sort=cmc_rank&aux=`,
+        {
+          headers: {
+            'X-CMC_PRO_API_KEY': apiSecretKey,
+          },
+        },
+      );
+
+      const ids = response.data.data.map(item => item.id).toString();
+      const _response = await axios.get(
+        `${apiBaseUrl}/cryptocurrency/quotes/latest?id=${ids}`,
+        {
+          headers: {
+            'X-CMC_PRO_API_KEY': apiSecretKey,
+          },
+        },
+      );
+
+      return dispatch({
+        type: FETCHING_COIN_DATA_SUCCESS,
+        payload: Object.values(_response.data.data),
+      });
+    } catch (error) {
+      return dispatch({
+        type: FETCHING_COIN_DATA_FAIL,
+        payload: error,
+      });
+    }
+  };
 }
