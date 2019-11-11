@@ -15,18 +15,28 @@ const CryptoContainer = props => {
   const {contentContainer} = styles;
 
   const renderCoinCards = () => {
-    return crypto.data.map(coin => {
-      return (
-        <CoinCard
-          key={coin.id}
-          _coinName={coin.name}
-          _symbol={coin.symbol}
-          _priceUSD={coin.quote.USD.price}
-          _percentChange24h={coin.quote.USD.percent_change_24h}
-          _percentChange7d={coin.quote.USD.percent_change_7d}
-        />
-      );
-    });
+    return crypto.data
+      .sort((a, b) => {
+        if (a.cmc_rank > b.cmc_rank) {
+          return 1;
+        }
+        if (b.cmc_rank > a.cmc_rank) {
+          return -1;
+        }
+        return 0;
+      })
+      .map(coin => {
+        return (
+          <CoinCard
+            key={coin.id}
+            _coinName={coin.name}
+            _symbol={coin.symbol}
+            _priceUSD={coin.quote.USD.price}
+            _percentChange24h={coin.quote.USD.percent_change_24h}
+            _percentChange7d={coin.quote.USD.percent_change_7d}
+          />
+        );
+      });
   };
 
   if (crypto.isFetching === false) {

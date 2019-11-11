@@ -3,6 +3,7 @@ export const images = {
     ETH: 'https://res.cloudinary.com/da7jhtpgh/image/upload/v1508609485/ethereum_nw0chu.png',
     XRP: 'https://res.cloudinary.com/da7jhtpgh/image/upload/v1508609486/ripple_p0xeut.png',
     BCH: 'https://res.cloudinary.com/da7jhtpgh/image/upload/v1516327336/bch_2x_hahroi.png',
+    USDT: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR-d7tgZ7P3DBOQ-t2qvtsoK_-12DF3zp5XmovLm4xDrVc-nPSl',
     LTC: 'https://res.cloudinary.com/da7jhtpgh/image/upload/v1512427497/ltc_fjbqjf.png',
     DASH: 'https://res.cloudinary.com/da7jhtpgh/image/upload/v1508609484/dash_oltvqi.png',
     XEM: 'https://res.cloudinary.com/da7jhtpgh/image/upload/v1508609486/nem_imprip.png',
@@ -16,5 +17,12 @@ export const images = {
     ADA: 'https://res.cloudinary.com/da7jhtpgh/image/upload/v1516326874/ada_2x_g4fs0c.png',
     IOTA: 'https://res.cloudinary.com/da7jhtpgh/image/upload/v1516327102/miota_2x_zsvtqc.png',
     TRX: 'https://res.cloudinary.com/da7jhtpgh/image/upload/v1516326885/trx_2x_ukhxjm.png',
-    EOS: 'https://res.cloudinary.com/da7jhtpgh/image/upload/v1516326878/eos_2x_dvr7p0.png'
+    EOS: 'https://res.cloudinary.com/da7jhtpgh/image/upload/v1516326878/eos_2x_dvr7p0.png',
+    BNB: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png',
+    BSV: 'https://res.cloudinary.com/da7jhtpgh/image/upload/v1516327336/bch_2x_hahroi.png',
+    LEO: 'https://en.bitcoinwiki.org/upload/en/images/7/70/LEOcoin.png',
+    LINK: 'https://www.coinopsy.com/media/img/quality_logo/ChainLink.png',
+    HT: 'https://www.coinopsy.com/media/img/quality_logo/Huobi_Token.png',
+    ATOM: 'https://coinsprices.net/public/images/coins_icons/thumbs/atom_.png',
+    XTZ: 'http://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/256/Tezos-Pre-Launch-XTZ-icon.png',
 };
