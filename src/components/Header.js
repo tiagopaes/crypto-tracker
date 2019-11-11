@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <View style={headerContainer}>
       <Text style={header}>
-        Crypto App
+        Crypto Tracker
       </Text>
     </View>
   );
