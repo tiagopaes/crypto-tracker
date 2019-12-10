@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 import { images } from '../Utils/CoinIcons';
 
@@ -85,7 +85,7 @@ const CoinCard = ({_symbol, _coinName, _priceUSD, _percentChange24h, _percentCha
         <Text style={separator}>|</Text>
         <Text style={coinName}>{_coinName}</Text>
         <Text style={coinPrice}>
-          <Text style={moneySymbol}>$ </Text>
+          <Text style={moneySymbol}>US$ </Text>
           {Number(_priceUSD).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}
         </Text>
       </View>
