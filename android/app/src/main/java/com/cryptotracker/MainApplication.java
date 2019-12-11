@@ -1,4 +1,4 @@
-package com.cryptotracker;
+package com.tiagopaes.cryptotracker;
 
 import android.app.Application;
 import android.util.Log;
