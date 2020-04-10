@@ -2,4 +2,4 @@
 
 A cryptocurrency tracker app made with react native
 
-![](./screenshot-nexus.png)
+<img src="./screenshot-nexus.png" alt="Screenshot" width="300"/>
